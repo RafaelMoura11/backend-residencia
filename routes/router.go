@@ -35,5 +35,14 @@ func SetupRoutes() *gin.Engine {
 		usage.DELETE("/:id", controllers.DeleteUsageToken)
 	}
 
+	tool := r.Group("/tools")
+	{
+		tool.POST("/", controllers.CreateTool)
+		tool.GET("/", controllers.GetTools)
+		tool.GET("/:id", controllers.GetToolByID)
+		tool.PUT("/:id", controllers.UpdateTool)
+		tool.DELETE("/:id", controllers.DeleteTool)
+	}
+
 	return r
 }
