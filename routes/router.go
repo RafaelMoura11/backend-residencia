@@ -26,6 +26,14 @@ func SetupRoutes() *gin.Engine {
 		message.DELETE("/:id", controllers.DeleteMessage)
 	}
 
+	usage := r.Group("/usage-tokens")
+	{
+		usage.POST("/", controllers.CreateUsageToken)
+		usage.GET("/", controllers.GetUsageTokens)
+		usage.GET("/:id", controllers.GetUsageTokenByID)
+		usage.PUT("/:id", controllers.UpdateUsageToken)
+		usage.DELETE("/:id", controllers.DeleteUsageToken)
+	}
 
 	return r
 }
