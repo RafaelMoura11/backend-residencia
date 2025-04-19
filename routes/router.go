@@ -51,5 +51,21 @@ func SetupRoutes() *gin.Engine {
 		agentTool.DELETE("/:id", controllers.DeleteAgentTool)
 	}
 
+	output := r.Group("/output-structures")
+	{
+		output.POST("/", controllers.CreateOutputStructure)
+		output.GET("/", controllers.GetOutputStructures)
+		output.GET("/:id", controllers.GetOutputStructureByID)
+		output.PUT("/:id", controllers.UpdateOutputStructure)
+		output.DELETE("/:id", controllers.DeleteOutputStructure)
+	}
+
+	agentOutput := r.Group("/agent-output-structures")
+	{
+		agentOutput.POST("/", controllers.CreateAgentOutputStructure)
+		agentOutput.GET("/", controllers.GetAgentOutputStructures)
+		agentOutput.DELETE("/:id", controllers.DeleteAgentOutputStructure)
+	}
+
 	return r
 }
