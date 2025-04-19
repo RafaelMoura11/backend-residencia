@@ -4,9 +4,10 @@ import (
 	"backend-residencia/config"
 	"backend-residencia/models"
 	"backend-residencia/routes"
+	"log"
+	"os"
 
 	"github.com/joho/godotenv"
-	"log"
 )
 
 func main() {
@@ -29,5 +30,10 @@ func main() {
 	log.Println("✅ AutoMigrate concluído")
 
 	r := routes.SetupRoutes()
-	r.Run(":8080")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	r.Run(":" + port)
 }
