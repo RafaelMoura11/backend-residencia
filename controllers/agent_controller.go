@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"your_project/config"
-	"your_project/models"
+	"backend-residencia/config"
+	"backend-residencia/models"
 )
 
 func CreateAgent(c *gin.Context) {
