@@ -44,5 +44,12 @@ func SetupRoutes() *gin.Engine {
 		tool.DELETE("/:id", controllers.DeleteTool)
 	}
 
+	agentTool := r.Group("/agent-tools")
+	{
+		agentTool.POST("/", controllers.CreateAgentTool)
+		agentTool.GET("/", controllers.GetAgentTools)
+		agentTool.DELETE("/:id", controllers.DeleteAgentTool)
+	}
+
 	return r
 }

@@ -20,6 +20,7 @@ func main() {
 		&models.Message{},
 		&models.UsageToken{},
 		&models.Tool{},
+		&models.AgentTool{},
 	); err != nil {
 		log.Fatal("❌ Erro ao executar AutoMigrate:", err)
 	}
