@@ -8,7 +8,6 @@
 *.out
 
 # diretórios Go padrão
-/vendor/
 /bin/
 /build/
 /dist/
@@ -30,6 +29,3 @@ Thumbs.db
 
 # variáveis de ambiente
 .env
-
-# dependências
-/go.sum
