@@ -1,0 +1,35 @@
+# binários
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# diretórios Go padrão
+/vendor/
+/bin/
+/build/
+/dist/
+
+# cache Go
+*.log
+*.tmp
+*.cache
+*.coverprofile
+
+# arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# arquivos de IDE
+.idea/
+.vscode/
+*.swp
+
+# variáveis de ambiente
+.env
+
+# dependências
+/go.sum
