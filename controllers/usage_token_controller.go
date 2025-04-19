@@ -36,7 +36,7 @@ func CreateUsageToken(c *gin.Context) {
 
 func GetUsageTokens(c *gin.Context) {
 	var tokens []models.UsageToken
-	config.DB.Preload("Message").Find(&tokens)
+	config.DB.Find(&tokens)
 	c.JSON(http.StatusOK, tokens)
 }
 
@@ -44,7 +44,7 @@ func GetUsageTokenByID(c *gin.Context) {
 	id := c.Param("id")
 	var token models.UsageToken
 
-	if err := config.DB.Preload("Message").First(&token, id).Error; err != nil {
+	if err := config.DB.First(&token, id).Error; err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Token de uso não encontrado"})
 		return
 	}
