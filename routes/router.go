@@ -8,6 +8,10 @@ import (
 func SetupRoutes() *gin.Engine {
 	r := gin.Default()
 
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Está funcionando!")
+	})
+
 	agent := r.Group("/agents")
 	{
 		agent.POST("/", controllers.CreateAgent)
