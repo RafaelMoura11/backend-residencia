@@ -12,12 +12,16 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	name := os.Getenv("DB_NAME")
+
+	log.Printf("Tentando conectar em %s:%s com banco %s...\n", host, port, name)
+
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
-		os.Getenv("DB_USER"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_NAME"),
+		user, password, host, port, name,
 	)
 
 	database, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
@@ -26,4 +30,5 @@ func ConnectDatabase() {
 	}
 
 	DB = database
+	log.Println("✅ Conectado com sucesso ao banco de dados")
 }
