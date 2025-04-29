@@ -1,0 +1,7 @@
+.git
+*.log
+*.env
+node_modules
+*.zip
+*.tar.gz
+
